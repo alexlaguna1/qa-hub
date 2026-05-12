@@ -565,6 +565,7 @@ body::before {
 .dot-ba     { background: #ef4444; }
 .dot-devops { background: #6366f1; }
 .dot-consult{ background: #14b8a6; }
+.dot-po       { background: #ec4899; }
 
 .badge-sqa    { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
 .badge-ai     { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
@@ -573,6 +574,7 @@ body::before {
 .badge-ba     { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
 .badge-devops { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; }
 .badge-consult{ background: #f0fdfa; color: #134e4a; border: 1px solid #99f6e4; }
+.badge-po { background: #fdf2f8; color: #9d174d; border: 1px solid #fbcfe8; }
 
 /* ── ANIMATIONS ── */
 @keyframes fadeUp {
@@ -856,6 +858,14 @@ const ROLES = [
     badgeText: 'Pivot',
     desc: 'Acceptance criteria · Edge-case thinking → product decisions',
   },
+  {
+  id: 'po',
+  label: 'Product Owner',
+  dot: 'dot-po',
+  badge: 'badge-po',
+  badgeText: 'Pivot',
+  desc: 'Acceptance criteria · Agile ceremonies · Risk thinking → roadmap ownership',
+},
   {
     id: 'ba',
     label: 'Business Analyst',
