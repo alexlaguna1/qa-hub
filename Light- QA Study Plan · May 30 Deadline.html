@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<!-- saved from url=(0046)file:///Users/auys/Downloads/study-plan_2.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA Study Plan · May 30 Deadline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Light- QA Study Plan · May 30 Deadline_files/css2" rel="stylesheet">
+<style>
+  :root {
+    --bg:    #f5f4f0;
+    --bg2:   #ffffff;
+    --bg3:   #f0eee9;
+    --bg4:   #e8e6e0;
+    --border:  #dddbd4;
+    --border2: #c9c7bf;
+    --text:  #1a1916;
+    --text2: #6b6860;
+    --text3: #a09d96;
+    --amber: #b85c00;
+    --amber2: #d06a00;
+    --amber-dim: rgba(184,92,0,0.08);
+    --amber-glow: rgba(184,92,0,0.04);
+    --green: #1a7a4a;
+    --green-dim: rgba(26,122,74,0.09);
+    --blue: #1d5bbf;
+    --blue-dim: rgba(29,91,191,0.09);
+    --red: #c0392b;
+    --red-dim: rgba(192,57,43,0.09);
+    --mono: 'JetBrains Mono', monospace;
+    --serif: 'Instrument Serif', serif;
+    --radius: 10px;
+    --radius-sm: 6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 13px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Noise overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.18;
+  }
+
+  .wrap {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 4rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ── HEADER ── */
+  header {
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .header-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.25rem;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    color: var(--amber);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 24px;
+    height: 1px;
+    background: var(--amber);
+  }
+
+  h1 {
+    font-family: var(--serif);
+    font-size: clamp(28px, 5vw, 42px);
+    font-weight: 400;
+    line-height: 1.15;
+    color: var(--text);
+    letter-spacing: -0.01em;
+  }
+
+  h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+
+  .subtitle {
+    font-size: 12px;
+    color: var(--text2);
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .subtitle span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  /* Countdown */
+  .countdown-block {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-shrink: 0;
+  }
+
+  .cd-item { text-align: center; }
+  .cd-val {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--amber);
+    line-height: 1;
+    display: block;
+  }
+  .cd-lbl {
+    font-size: 9px;
+    color: var(--text3);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .cd-sep {
+    font-size: 20px;
+    color: var(--border2);
+    font-weight: 300;
+    margin-bottom: 12px;
+  }
+
+  /* ── OVERALL PROGRESS ── */
+  .overall-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .overall-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 12px;
+  }
+
+  .overall-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text2);
+  }
+
+  .overall-pct {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--green);
+    line-height: 1;
+  }
+
+  .progress-track {
+    background: var(--bg4);
+    border-radius: 4px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    background: linear-gradient(90deg, var(--green), #2da862);
+    transition: width 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+  }
+
+  .progress-fill::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #2da862;
+    box-shadow: 0 0 8px rgba(29,122,74,0.4);
+  }
+
+  .track-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .track-mini {
+    background: var(--bg3);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+  }
+
+  .track-mini-label {
+    font-size: 10px;
+    color: var(--text2);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .track-mini-bar {
+    background: var(--bg4);
+    border-radius: 3px;
+    height: 4px;
+    overflow: hidden;
+  }
+
+  .track-mini-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.5s ease;
+  }
+
+  .track-mini-pct {
+    font-size: 11px;
+    font-weight: 500;
+    float: right;
+    margin-top: -16px;
+  }
+
+  /* ── FILTER TABS ── */
+  .filters {
+    display: flex;
+    gap: 6px;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .filter-btn {
+    padding: 5px 14px;
+    font-size: 11px;
+    font-family: var(--mono);
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    cursor: pointer;
+    background: transparent;
+    color: var(--text2);
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .filter-btn:hover { color: var(--text); border-color: var(--text3); }
+
+  .filter-btn.active {
+    background: var(--amber-dim);
+    border-color: var(--amber);
+    color: var(--amber);
+  }
+
+  /* ── WEEK BLOCKS ── */
+  .week {
+    margin-bottom: 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .week:nth-child(1) { animation-delay: 0.25s; }
+  .week:nth-child(2) { animation-delay: 0.35s; }
+  .week:nth-child(3) { animation-delay: 0.45s; }
+
+  .week-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 18px;
+    cursor: pointer;
+    background: var(--bg2);
+    border-bottom: 1px solid transparent;
+    transition: background 0.15s;
+    user-select: none;
+  }
+
+  .week-header:hover { background: var(--bg3); }
+  .week.open .week-header { border-bottom-color: var(--border); }
+
+  .week-num {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  .wn-1 { background: var(--blue-dim);  color: var(--blue);  border: 1px solid rgba(29,91,191,0.2); }
+  .wn-2 { background: var(--amber-dim); color: var(--amber); border: 1px solid rgba(184,92,0,0.2); }
+  .wn-3 { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(192,57,43,0.2); }
+
+  .week-title { font-size: 14px; font-weight: 500; flex: 1; color: var(--text); }
+  .week-subtitle { font-size: 11px; color: var(--text2); }
+
+  .week-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .week-dates {
+    font-size: 11px;
+    color: var(--text3);
+  }
+
+  .week-progress-pill {
+    font-size: 11px;
+    font-weight: 500;
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: var(--bg4);
+    color: var(--text2);
+    border: 1px solid var(--border);
+    min-width: 52px;
+    text-align: center;
+    transition: all 0.3s;
+  }
+
+  .week-progress-pill.done {
+    background: var(--green-dim);
+    color: var(--green);
+    border-color: rgba(61,214,140,0.2);
+  }
+
+  .chevron {
+    color: var(--text3);
+    font-size: 16px;
+    transition: transform 0.25s;
+  }
+  .week.open .chevron { transform: rotate(180deg); }
+
+  /* Week body */
+  .week-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .week.open .week-body { max-height: 2000px; }
+
+  .week-inner { padding: 16px 18px 18px; }
+
+  /* Track sections */
+  .track-section {
+    margin-bottom: 18px;
+    transition: opacity 0.2s;
+  }
+
+  .track-section.hidden { display: none; }
+
+  .track-section:last-child { margin-bottom: 0; }
+
+  .track-title {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .tt-pw { color: var(--blue); }
+  .tt-ci { color: var(--green); }
+  .tt-is { color: var(--amber); }
+
+  .track-title .track-pct {
+    margin-left: auto;
+    font-size: 10px;
+    color: var(--text3);
+  }
+
+  /* Tasks */
+  .task {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: background 0.1s;
+    margin-bottom: 2px;
+  }
+
+  .task:hover { background: var(--bg3); }
+
+  .task input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid var(--border2);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.15s;
+    background: var(--bg4);
+  }
+
+  .task input[type="checkbox"]:checked {
+    background: var(--green);
+    border-color: var(--green);
+  }
+
+  .task input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    left: 3px;
+    top: 1px;
+    width: 6px;
+    height: 9px;
+    border: 2px solid var(--bg);
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+  }
+
+  .task-text {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: var(--text2);
+    flex: 1;
+    transition: all 0.2s;
+  }
+
+  .task input:checked ~ .task-text {
+    color: var(--text3);
+    text-decoration: line-through;
+    text-decoration-color: var(--border2);
+  }
+
+  .task-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 20px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .tag-pw { background: var(--blue-dim); color: var(--blue); }
+  .tag-ci { background: var(--green-dim); color: var(--green); }
+  .tag-is { background: var(--amber-dim); color: var(--amber); }
+
+  /* ── DELIVERABLE ── */
+  .deliverable {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--amber);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-top: 1.5rem;
+    animation: fadeUp 0.6s 0.5s ease both;
+  }
+
+  .deliverable-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .deliverable p {
+    font-size: 12.5px;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+
+  /* ── DAILY CADENCE ── */
+  .cadence {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1rem 1.25rem;
+    margin-top: 14px;
+    animation: fadeUp 0.6s 0.6s ease both;
+  }
+
+  .cadence-title {
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text2);
+    margin-bottom: 10px;
+  }
+
+  .cadence-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 8px;
+  }
+
+  .cadence-item {
+    background: var(--bg3);
+    border-radius: var(--radius-sm);
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+  }
+
+  .cadence-day { font-size: 10px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 4px; }
+  .cadence-hours { font-size: 16px; font-weight: 700; color: var(--text); }
+  .cadence-focus { font-size: 11px; color: var(--text2); margin-top: 2px; }
+
+  /* ── FOOTER ── */
+  footer {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 11px;
+    color: var(--text3);
+    animation: fadeUp 0.6s 0.7s ease both;
+  }
+
+  footer span { color: var(--amber); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Reset button */
+  .reset-btn {
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 4px 12px;
+    background: transparent;
+    border: 1px solid var(--border2);
+    border-radius: 20px;
+    color: var(--text3);
+    cursor: pointer;
+    transition: all 0.15s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .reset-btn:hover { color: var(--red); border-color: var(--red); }
+
+  /* ── RESOURCES ── */
+  .res-group-title {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.1em; margin-bottom: 10px;
+    display: flex; align-items: center; gap: 8px;
+  }
+  .res-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+  }
+  .res-card {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 12px 14px;
+    text-decoration: none; color: inherit;
+    display: flex; flex-direction: column; gap: 5px;
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .res-card:hover { border-color: var(--border2); background: var(--bg3); }
+  .res-top { display: flex; gap: 5px; flex-wrap: wrap; }
+  .res-badge { font-size: 10px; padding: 2px 8px; border-radius: 20px; font-weight: 500; }
+  .rb-free    { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(61,214,140,0.2); }
+  .rb-paid    { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(245,166,35,0.2); }
+  .rb-docs    { background: var(--blue-dim);   color: var(--blue);   border: 1px solid rgba(91,156,246,0.2); }
+  .rb-yt      { background: var(--red-dim);    color: var(--red);    border: 1px solid rgba(192,57,43,0.2); }
+  .rb-udemy   { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(184,92,0,0.2); }
+  .rb-article { background: var(--bg4); color: var(--text2); border: 1px solid var(--border); }
+  .rb-quiz    { background: var(--blue-dim);   color: var(--blue);   border: 1px solid rgba(29,91,191,0.2); }
+  .res-name { font-size: 13px; font-weight: 500; color: var(--text); line-height: 1.4; }
+  .res-src  { font-size: 11px; color: var(--amber); }
+  .res-desc { font-size: 11.5px; color: var(--text2); line-height: 1.55; flex: 1; }
+  .res-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
+  .rtag { font-size: 10px; padding: 2px 7px; background: var(--bg4); border: 1px solid var(--border); border-radius: 20px; color: var(--text3); }
+  .res-card:hover .res-name { color: var(--amber); }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg3); }
+  ::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+  @media (max-width: 600px) {
+    .track-row { grid-template-columns: 1fr; }
+    .week-dates { display: none; }
+    h1 { font-size: 28px; }
+    .countdown-block { padding: 10px 14px; gap: 14px; }
+    .cd-val { font-size: 20px; }
+    .header-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-top">
+      <div>
+        <div class="eyebrow">Senior QA Engineer</div>
+        <h1>Study Plan<br><em>May 30 deadline</em></h1>
+        <div class="subtitle">
+          <span>📅 11 – 30 May 2026</span>
+          <span>⏱ 3 parallel tracks</span>
+          <span>🎯 Playwright · CI/CD · ISTQB</span>
+        </div>
+      </div>
+      <div class="countdown-block">
+        <div class="cd-item">
+          <span class="cd-val" id="cd-days">18</span>
+          <span class="cd-lbl">days</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item">
+          <span class="cd-val" id="cd-hrs">14</span>
+          <span class="cd-lbl">hours</span>
+        </div>
+        <div class="cd-sep">:</div>
+        <div class="cd-item">
+          <span class="cd-val" id="cd-min">28</span>
+          <span class="cd-lbl">mins</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- OVERALL PROGRESS -->
+  <div class="overall-card">
+    <div class="overall-top">
+      <div>
+        <div class="overall-label">Overall progress</div>
+        <div style="font-size:11px;color:var(--text3);margin-top:3px;" id="overall-sub">0 of 39 tasks completed</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="overall-pct" id="overall-pct">0%</div>
+        <button class="reset-btn" onclick="resetAll()">Reset</button>
+      </div>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="overall-bar" style="width:0%"></div>
+    </div>
+    <div class="track-row">
+      <div class="track-mini">
+        <div class="track-mini-label">🎭 Playwright &amp; framework <span class="track-mini-pct" id="pct-pw" style="color:var(--blue)">0%</span></div>
+        <div class="track-mini-bar"><div class="track-mini-fill" id="bar-pw" style="width:0%;background:var(--blue)"></div></div>
+      </div>
+      <div class="track-mini">
+        <div class="track-mini-label">🔗 Integration &amp; CI/CD <span class="track-mini-pct" id="pct-ci" style="color:var(--green)">0%</span></div>
+        <div class="track-mini-bar"><div class="track-mini-fill" id="bar-ci" style="width:0%;background:var(--green)"></div></div>
+      </div>
+      <div class="track-mini">
+        <div class="track-mini-label">📚 ISTQB <span class="track-mini-pct" id="pct-is" style="color:var(--amber)">0%</span></div>
+        <div class="track-mini-bar"><div class="track-mini-fill" id="bar-is" style="width:0%;background:var(--amber)"></div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FILTERS -->
+  <div class="filters">
+    <button class="filter-btn active" onclick="setFilter(&#39;all&#39;,this)">All tracks</button>
+    <button class="filter-btn" onclick="setFilter(&#39;pw&#39;,this)">🎭 Playwright</button>
+    <button class="filter-btn" onclick="setFilter(&#39;ci&#39;,this)">🔗 CI/CD</button>
+    <button class="filter-btn" onclick="setFilter(&#39;is&#39;,this)">📚 ISTQB</button>
+  </div>
+
+  <!-- WEEKS -->
+  <div id="weeks-container">
+
+  <!-- ── WEEK 1 ── -->
+  <div class="week open" id="week-1">
+    <div class="week-header" onclick="toggleWeek(&#39;week-1&#39;)">
+      <span class="week-num wn-1">Week 1</span>
+      <div>
+        <div class="week-title">Foundations &amp; project setup</div>
+        <div class="week-subtitle">POM structure · first integration tests · ISTQB kick-off</div>
+      </div>
+      <div class="week-meta">
+        <span class="week-dates">11 – 17 May</span>
+        <span class="week-progress-pill" id="pill-week-1">0%</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="week-inner">
+
+        <div class="track-section pw-section">
+          <div class="track-title tt-pw">🎭 Playwright &amp; Framework <span class="track-pct" id="tp-w1-pw">0/5</span></div>
+          <label class="task"><input type="checkbox" data-id="t1" data-track="pw"><span class="task-text">Set up fresh Node.js project — folder structure <code>pages/</code>, <code>tests/</code>, <code>fixtures/</code>, <code>utils/</code></span></label>
+          <label class="task"><input type="checkbox" data-id="t2" data-track="pw"><span class="task-text">Implement Page Object Model (POM) for at least 2 pages of a real public app (SauceDemo or Conduit)</span></label>
+          <label class="task"><input type="checkbox" data-id="t3" data-track="pw"><span class="task-text">Write 10+ UI tests: navigation, forms, auth flows, assertions with <code>expect()</code></span></label>
+          <label class="task"><input type="checkbox" data-id="t4" data-track="pw"><span class="task-text">Configure <code>playwright.config.ts</code> — projects (chromium/firefox), baseURL, retries, reporters (HTML + JUnit)</span></label>
+          <label class="task"><input type="checkbox" data-id="t5" data-track="pw"><span class="task-text">Use fixtures for test setup/teardown — global auth state, <code>beforeAll</code> hooks</span></label>
+        </div>
+
+        <div class="track-section ci-section">
+          <div class="track-title tt-ci">🔗 Integration &amp; CI/CD <span class="track-pct" id="tp-w1-ci">0/3</span></div>
+          <label class="task"><input type="checkbox" data-id="t6" data-track="ci"><span class="task-text">Pick a real project target — use a public REST API or spin up a simple Express/FastAPI app locally</span></label>
+          <label class="task"><input type="checkbox" data-id="t7" data-track="ci"><span class="task-text">Write 5 integration tests with Playwright request API or supertest — cover happy path + error cases</span></label>
+          <label class="task"><input type="checkbox" data-id="t8" data-track="ci"><span class="task-text">Init GitHub repo, push project, add README with test strategy doc</span></label>
+        </div>
+
+        <div class="track-section is-section">
+          <div class="track-title tt-is">📚 ISTQB <span class="track-pct" id="tp-w1-is">0/3</span></div>
+          <label class="task"><input type="checkbox" data-id="t9" data-track="is"><span class="task-text">Download ISTQB Test Analyst (TA) + Test Automation Engineer (TAE) syllabus PDFs from istqb.org</span></label>
+          <label class="task"><input type="checkbox" data-id="t10" data-track="is"><span class="task-text">Read TA Ch 1–2: Testing throughout the software lifecycle, test management basics</span></label>
+          <label class="task"><input type="checkbox" data-id="t11" data-track="is"><span class="task-text">Read TAE Ch 1: Introduction to test automation, gTAA (generic test automation architecture)</span></label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WEEK 2 ── -->
+  <div class="week" id="week-2">
+    <div class="week-header" onclick="toggleWeek(&#39;week-2&#39;)">
+      <span class="week-num wn-2">Week 2</span>
+      <div>
+        <div class="week-title">Framework depth + CI/CD pipeline</div>
+        <div class="week-subtitle">Data-driven tests · GitHub Actions · ISTQB core techniques</div>
+      </div>
+      <div class="week-meta">
+        <span class="week-dates">18 – 24 May</span>
+        <span class="week-progress-pill" id="pill-week-2">0%</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="week-inner">
+
+        <div class="track-section pw-section">
+          <div class="track-title tt-pw">🎭 Playwright &amp; Framework <span class="track-pct" id="tp-w2-pw">0/5</span></div>
+          <label class="task"><input type="checkbox" data-id="t12" data-track="pw"><span class="task-text">Add data-driven tests using CSV/JSON test data files with Playwright's <code>test.each()</code></span></label>
+          <label class="task"><input type="checkbox" data-id="t13" data-track="pw"><span class="task-text">Implement custom reporter or extend built-in HTML report with annotations and screenshots on failure</span></label>
+          <label class="task"><input type="checkbox" data-id="t14" data-track="pw"><span class="task-text">Add visual regression testing with Playwright's <code>toHaveScreenshot()</code> — baseline + comparison run</span></label>
+          <label class="task"><input type="checkbox" data-id="t15" data-track="pw"><span class="task-text">Tag tests by priority (<code>@smoke</code>, <code>@regression</code>) and configure selective runs via grep</span></label>
+          <label class="task"><input type="checkbox" data-id="t16" data-track="pw"><span class="task-text">Write a test utilities layer: reusable helpers, API login shortcut, db seed function</span></label>
+        </div>
+
+        <div class="track-section ci-section">
+          <div class="track-title tt-ci">🔗 Integration &amp; CI/CD <span class="track-pct" id="tp-w2-ci">0/5</span></div>
+          <label class="task"><input type="checkbox" data-id="t17" data-track="ci"><span class="task-text">Create GitHub Actions workflow: install deps → run Playwright → upload HTML report as artifact</span></label>
+          <label class="task"><input type="checkbox" data-id="t18" data-track="ci"><span class="task-text">Add matrix strategy: run tests across chromium + firefox in parallel</span></label>
+          <label class="task"><input type="checkbox" data-id="t19" data-track="ci"><span class="task-text">Configure environment secrets (base URLs, credentials) via GitHub Secrets — never hardcode</span></label>
+          <label class="task"><input type="checkbox" data-id="t20" data-track="ci"><span class="task-text">Add integration test stage: spin up service with Docker Compose in CI, run API tests against it</span></label>
+          <label class="task"><input type="checkbox" data-id="t21" data-track="ci"><span class="task-text">Trigger strategy: on push to main AND on pull_request (smoke only on PR, full regression on merge)</span></label>
+        </div>
+
+        <div class="track-section is-section">
+          <div class="track-title tt-is">📚 ISTQB <span class="track-pct" id="tp-w2-is">0/5</span></div>
+          <label class="task"><input type="checkbox" data-id="t22" data-track="is"><span class="task-text">TA Ch 3: Test techniques — black-box (equivalence, boundary, decision table, state transition)</span></label>
+          <label class="task"><input type="checkbox" data-id="t23" data-track="is"><span class="task-text">TA Ch 4: Testing software quality characteristics (usability, reliability, performance)</span></label>
+          <label class="task"><input type="checkbox" data-id="t24" data-track="is"><span class="task-text">TAE Ch 2–3: TAA layers (test generation, execution, reporting), keyword-driven approach</span></label>
+          <label class="task"><input type="checkbox" data-id="t25" data-track="is"><span class="task-text">TAE Ch 4: Test environment and infrastructure for automation</span></label>
+          <label class="task"><input type="checkbox" data-id="t26" data-track="is"><span class="task-text">Practice 20 sample TA questions + 20 TAE questions (ISTQB Glossary app or Quizlet decks)</span></label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ── WEEK 3 ── -->
+  <div class="week" id="week-3">
+    <div class="week-header" onclick="toggleWeek(&#39;week-3&#39;)">
+      <span class="week-num wn-3">Week 3 — Final Sprint</span>
+      <div>
+        <div class="week-title">Polish &amp; portfolio ready</div>
+        <div class="week-subtitle">API mocking · CI notifications · ISTQB revision + mock exam</div>
+      </div>
+      <div class="week-meta">
+        <span class="week-dates">25 – 30 May</span>
+        <span class="week-progress-pill" id="pill-week-3">0%</span>
+        <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="16" height="16"><path d="m6 9 6 6 6-6"></path></svg>
+      </div>
+    </div>
+    <div class="week-body">
+      <div class="week-inner">
+
+        <div class="track-section pw-section">
+          <div class="track-title tt-pw">🎭 Playwright &amp; Framework <span class="track-pct" id="tp-w3-pw">0/4</span></div>
+          <label class="task"><input type="checkbox" data-id="t27" data-track="pw"><span class="task-text">Add API mocking layer — Playwright route interception to mock slow/flaky external APIs in tests</span></label>
+          <label class="task"><input type="checkbox" data-id="t28" data-track="pw"><span class="task-text">Write README.md: how to run locally, CI setup, framework architecture diagram</span></label>
+          <label class="task"><input type="checkbox" data-id="t29" data-track="pw"><span class="task-text">Full framework review: ensure DRY, no magic strings, configs externalised — polish for GitHub portfolio</span></label>
+          <label class="task"><input type="checkbox" data-id="t30" data-track="pw"><span class="task-text">Record a short Loom walkthrough of the framework — great for "show your work" in interviews</span></label>
+        </div>
+
+        <div class="track-section ci-section">
+          <div class="track-title tt-ci">🔗 Integration &amp; CI/CD <span class="track-pct" id="tp-w3-ci">0/4</span></div>
+          <label class="task"><input type="checkbox" data-id="t31" data-track="ci"><span class="task-text">Add test result badge to GitHub README (shields.io + GitHub Actions status)</span></label>
+          <label class="task"><input type="checkbox" data-id="t32" data-track="ci"><span class="task-text">Add Slack or email notification step on pipeline failure (GitHub Actions webhook)</span></label>
+          <label class="task"><input type="checkbox" data-id="t33" data-track="ci"><span class="task-text">Document CI/CD strategy: environments, trigger rules, artifact retention — 1-page doc in repo</span></label>
+          <label class="task"><input type="checkbox" data-id="t34" data-track="ci"><span class="task-text">End-to-end demo: push a commit → watch pipeline → see green report ✓</span></label>
+        </div>
+
+        <div class="track-section is-section">
+          <div class="track-title tt-is">📚 ISTQB <span class="track-pct" id="tp-w3-is">0/5</span></div>
+          <label class="task"><input type="checkbox" data-id="t35" data-track="is"><span class="task-text">TA Ch 5–6: Reviews and defect management — test analyst's role in formal reviews</span></label>
+          <label class="task"><input type="checkbox" data-id="t36" data-track="is"><span class="task-text">TAE Ch 5–6: Automation metrics, risks, ROI, transitioning manual to automated tests</span></label>
+          <label class="task"><input type="checkbox" data-id="t37" data-track="is"><span class="task-text">Full mock exam: 40 TA + 40 TAE sample questions timed — aim for 75%+ pass threshold</span></label>
+          <label class="task"><input type="checkbox" data-id="t38" data-track="is"><span class="task-text">Review all wrong answers — focus on edge-case wording (ISTQB loves precise terminology)</span></label>
+          <label class="task"><input type="checkbox" data-id="t39" data-track="is"><span class="task-text">Register for exam sitting — ISTQB Partner sites: Pearson VUE or GASQ</span></label>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  </div><!-- /weeks-container -->
+
+  <!-- DELIVERABLE -->
+  <div class="deliverable">
+    <div class="deliverable-title">📦 Deliverable by May 30</div>
+    <p>A public GitHub repo with a full Playwright automation framework — POM, data-driven tests, API integration tests, GitHub Actions CI/CD pipeline with Docker Compose, HTML reports, and a README with architecture diagram. This becomes your strongest interview asset and portfolio proof point.</p>
+  </div>
+
+  <!-- DAILY CADENCE -->
+  <div class="cadence">
+    <div class="cadence-title">Recommended daily cadence</div>
+    <div class="cadence-row">
+      <div class="cadence-item">
+        <div class="cadence-day">Mon – Fri</div>
+        <div class="cadence-hours">2–3 hrs</div>
+        <div class="cadence-focus">Morning: Playwright / CI/CD<br>Evening: ISTQB reading</div>
+      </div>
+      <div class="cadence-item">
+        <div class="cadence-day">Sat – Sun</div>
+        <div class="cadence-hours">4–5 hrs</div>
+        <div class="cadence-focus">Deep build sessions<br>Mock exam practice</div>
+      </div>
+      <div class="cadence-item">
+        <div class="cadence-day">Daily tip</div>
+        <div class="cadence-hours" style="font-size:12px;margin-top:2px;color:var(--amber)">Commit daily</div>
+        <div class="cadence-focus">Push to GitHub every day — the green squares are your motivation and your proof</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RESOURCES SECTION -->
+  <div style="margin-top:2rem;animation:fadeUp 0.6s 0.65s ease both;">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem;flex-wrap:wrap;gap:8px;">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text2);">Learning resources</div>
+      <div class="res-filters" style="display:flex;gap:6px;flex-wrap:wrap;">
+        <button class="filter-btn active" onclick="setResFilter(&#39;all&#39;,this)">All</button>
+        <button class="filter-btn" onclick="setResFilter(&#39;pw&#39;,this)">🎭 Playwright</button>
+        <button class="filter-btn" onclick="setResFilter(&#39;ci&#39;,this)">🔗 CI/CD</button>
+        <button class="filter-btn" onclick="setResFilter(&#39;is&#39;,this)">📚 ISTQB</button>
+      </div>
+    </div>
+
+    <!-- PLAYWRIGHT RESOURCES -->
+    <div class="res-group pw-res">
+      <div class="res-group-title tt-pw">🎭 Playwright &amp; Framework</div>
+      <div class="res-grid">
+
+        <a class="res-card" href="https://playwright.dev/docs/intro" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official docs</span></div>
+          <div class="res-name">Playwright Official Docs</div>
+          <div class="res-src">playwright.dev</div>
+          <div class="res-desc">The ground truth. POM, fixtures, config, reporters, API testing, visual regression — all with code examples. Always start here.</div>
+          <div class="res-tags"><span class="rtag">POM</span><span class="rtag">Fixtures</span><span class="rtag">Config</span><span class="rtag">API testing</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.youtube.com/playlist?list=PL83cimSRP5ZmwhC6u255huRwSi9tlP-nc" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-yt">YouTube</span></div>
+          <div class="res-name">Playwright 2026 Full Course — TypeScript &amp; JS Framework from Scratch</div>
+          <div class="res-src">YouTube playlist · 2026</div>
+          <div class="res-desc">Complete free course covering TypeScript setup, POM pattern, CI/CD integration, and building a framework from zero. Updated 2026.</div>
+          <div class="res-tags"><span class="rtag">Framework build</span><span class="rtag">TypeScript</span><span class="rtag">POM</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.udemy.com/course/playwright-tutorials-automation-testing/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-paid">Paid ~$15</span><span class="res-badge rb-udemy">Udemy</span></div>
+          <div class="res-name">Playwright JS/TS Automation from Scratch &amp; Framework</div>
+          <div class="res-src">Rahul Shetty Academy · Updated Jan 2026</div>
+          <div class="res-desc">25hrs, covers UI + API testing, data-driven tests, CI/CD with Docker, Mocha framework. Updated Jan 2026 with Playwright Agents demo. Best-in-class.</div>
+          <div class="res-tags"><span class="rtag">UI + API</span><span class="rtag">Data-driven</span><span class="rtag">Docker CI</span></div>
+        </a>
+
+        <a class="res-card" href="https://testautomationu.applitools.com/playwright-intro/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Course</span></div>
+          <div class="res-name">Introduction to Playwright — Test Automation University</div>
+          <div class="res-src">testautomationu.applitools.com</div>
+          <div class="res-desc">Structured 5-chapter course covering setup, config, visual testing with Applitools, and debugging with Trace Viewer. Free with registration.</div>
+          <div class="res-tags"><span class="rtag">Visual testing</span><span class="rtag">Trace Viewer</span><span class="rtag">Debugging</span></div>
+        </a>
+
+        <a class="res-card" href="https://playwright.dev/docs/pom" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official docs</span></div>
+          <div class="res-name">Page Object Models — Official Playwright Docs</div>
+          <div class="res-src">playwright.dev/docs/pom</div>
+          <div class="res-desc">The canonical guide to implementing POM in Playwright with TypeScript. Short, precise, and the reference interviewers expect you to know.</div>
+          <div class="res-tags"><span class="rtag">POM</span><span class="rtag">TypeScript</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.youtube.com/watch?v=a2qECHMGEC4" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-yt">YouTube</span></div>
+          <div class="res-name">Mastering Playwright with POM: Framework from Scratch (series)</div>
+          <div class="res-src">YouTube · July 2025</div>
+          <div class="res-desc">Full series building a POM Playwright framework step by step from project init to CI. Great to code along with for Week 1 tasks.</div>
+          <div class="res-tags"><span class="rtag">POM</span><span class="rtag">Framework build</span><span class="rtag">Hands-on</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.pluralsight.com/paths/playwright" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-paid">Trial available</span><span class="res-badge rb-docs">Learning path</span></div>
+          <div class="res-name">Playwright Learning Path — Pluralsight</div>
+          <div class="res-src">pluralsight.com · Updated May 2026</div>
+          <div class="res-desc">Structured multi-course path: fundamentals → advanced patterns → labs. Includes very recent labs updated May 2026. Good for structured learners.</div>
+          <div class="res-tags"><span class="rtag">Structured path</span><span class="rtag">Labs</span><span class="rtag">Multi-language</span></div>
+        </a>
+
+        <a class="res-card" href="https://browserstack.com/guide/page-object-model-with-playwright" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-article">Article</span></div>
+          <div class="res-name">POM with Playwright — Step-by-Step Guide</div>
+          <div class="res-src">BrowserStack · Jan 2026</div>
+          <div class="res-desc">Practical walkthrough of POM implementation including best practices, pitfalls, and debugging with Playwright Inspector. Great reference while building.</div>
+          <div class="res-tags"><span class="rtag">POM patterns</span><span class="rtag">Best practices</span><span class="rtag">Debugging</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- CI/CD RESOURCES -->
+    <div class="res-group ci-res" style="margin-top:1.5rem;">
+      <div class="res-group-title tt-ci">🔗 Integration Testing &amp; CI/CD</div>
+      <div class="res-grid">
+
+        <a class="res-card" href="https://docs.github.com/en/actions" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official docs</span></div>
+          <div class="res-name">GitHub Actions Official Documentation</div>
+          <div class="res-src">docs.github.com/en/actions</div>
+          <div class="res-desc">The definitive reference for workflows, secrets, matrix strategies, service containers, and artifacts. Bookmark the workflow syntax reference page.</div>
+          <div class="res-tags"><span class="rtag">Workflows</span><span class="rtag">Secrets</span><span class="rtag">Matrix</span><span class="rtag">Artifacts</span></div>
+        </a>
+
+        <a class="res-card" href="https://oneuptime.com/blog/post/2025-12-20-integration-testing-github-actions/view" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-article">Article</span></div>
+          <div class="res-name">Integration Testing in GitHub Actions — Service Containers &amp; Docker Compose</div>
+          <div class="res-src">OneUptime · Dec 2025</div>
+          <div class="res-desc">Comprehensive hands-on guide covering service containers (PostgreSQL, Redis) and Docker Compose for integration tests. Includes copy-paste YAML examples.</div>
+          <div class="res-tags"><span class="rtag">Service containers</span><span class="rtag">Docker Compose</span><span class="rtag">YAML</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.freecodecamp.org/news/how-to-run-integration-tests-with-github-service-containers/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-article">Tutorial</span></div>
+          <div class="res-name">Integration Tests with GitHub Service Containers</div>
+          <div class="res-src">freeCodeCamp · Jan 2025</div>
+          <div class="res-desc">Explains the difference between Docker Compose and Service Containers in CI — when to use each — with real MongoDB/Redis examples. Excellent conceptual foundation.</div>
+          <div class="res-tags"><span class="rtag">Service containers</span><span class="rtag">Database testing</span><span class="rtag">Concepts</span></div>
+        </a>
+
+        <a class="res-card" href="https://github.com/peter-evans/docker-compose-actions-workflow" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">GitHub repo</span></div>
+          <div class="res-name">Docker Compose GitHub Actions Workflow — Reference Example</div>
+          <div class="res-src">github.com/peter-evans · Reference repo</div>
+          <div class="res-desc">Minimal working example of a GitHub Actions workflow using Docker Compose to build and test a multi-container stack. Clone and adapt for your project.</div>
+          <div class="res-tags"><span class="rtag">Docker Compose</span><span class="rtag">Multi-container</span><span class="rtag">Template</span></div>
+        </a>
+
+        <a class="res-card" href="https://docs.github.com/en/actions/use-cases-and-examples/deploying/deploying-with-github-actions" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official docs</span></div>
+          <div class="res-name">Playwright + GitHub Actions — Official Integration Guide</div>
+          <div class="res-src">playwright.dev/docs/ci-intro</div>
+          <div class="res-desc">Official Playwright CI guide showing how to run tests in GitHub Actions, upload HTML reports as artifacts, and configure browser installs. Week 2 essential.</div>
+          <div class="res-tags"><span class="rtag">Playwright CI</span><span class="rtag">HTML report artifact</span><span class="rtag">Browser install</span></div>
+        </a>
+
+        <a class="res-card" href="https://runcloud.io/blog/setup-docker-github-actions-ci-cd" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-article">Guide</span></div>
+          <div class="res-name">CI/CD Pipeline with Docker + GitHub Actions — Complete Guide</div>
+          <div class="res-src">RunCloud · Oct 2025</div>
+          <div class="res-desc">End-to-end walkthrough: Dockerfile → docker-compose → GitHub Actions workflow → secrets management → deployment. Good for building the full pipeline picture.</div>
+          <div class="res-tags"><span class="rtag">Full pipeline</span><span class="rtag">Secrets</span><span class="rtag">Docker</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ISTQB RESOURCES -->
+    <div class="res-group is-res" style="margin-top:1.5rem;">
+      <div class="res-group-title tt-is">📚 ISTQB — Test Analyst (TA) &amp; Test Automation Engineer (TAE)</div>
+
+      <div style="background:var(--amber-dim);border:1px solid rgba(245,166,35,0.2);border-radius:var(--radius-sm);padding:10px 14px;font-size:12px;color:var(--amber);margin-bottom:12px;">
+        ⚠️ Important: The CT-TAE v1.0 (2016) exam was <strong>retired June 12, 2025</strong>. Make sure you study v2.0 materials only. Download the v2.0 syllabus from istqb.org → Downloads → Advanced Level.
+      </div>
+
+      <div class="res-grid">
+
+        <a class="res-card" href="https://istqb.org/certifications/advanced-level/test-automation-engineer-v2-0/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official</span></div>
+          <div class="res-name">ISTQB CT-TAE v2.0 Syllabus + Official Sample Exam</div>
+          <div class="res-src">istqb.org — Downloads → Advanced Level</div>
+          <div class="res-desc">The primary source. Download the syllabus PDF and official sample questions with rationale explanations. The rationales are the best study tool — they explain why wrong answers are wrong.</div>
+          <div class="res-tags"><span class="rtag">v2.0 syllabus</span><span class="rtag">Sample questions</span><span class="rtag">Must-have</span></div>
+        </a>
+
+        <a class="res-card" href="https://istqb.org/certifications/advanced-level/test-analyst-v4/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Official</span></div>
+          <div class="res-name">ISTQB Test Analyst (CTAL-TA) v4.0 Syllabus</div>
+          <div class="res-src">istqb.org — Downloads → Advanced Level</div>
+          <div class="res-desc">Official TA v4.0 syllabus with learning objectives. Focus on K-level weighting per chapter — higher K-levels appear more in the exam. Download sample questions too.</div>
+          <div class="res-tags"><span class="rtag">TA v4.0</span><span class="rtag">Test techniques</span><span class="rtag">Defect management</span></div>
+        </a>
+
+        <a class="res-card" href="https://mockexamnetwork.com/exams/istqb-automation/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-quiz">Practice exam</span></div>
+          <div class="res-name">ISTQB CT-TAE v2.0 — 2170 Free Practice Questions</div>
+          <div class="res-src">mockexamnetwork.com · Updated 2025</div>
+          <div class="res-desc">2170 free, randomly served questions for CT-TAE v2.0. Covers all chapters with per-section practice. Best free mock exam resource — use for daily drills and the Week 3 timed mock.</div>
+          <div class="res-tags"><span class="rtag">2170 questions</span><span class="rtag">v2.0</span><span class="rtag">Chapter-by-chapter</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.processexam.com/istqb/istqb-ctal-ta-certification-exam-sample-questions" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free sample</span><span class="res-badge rb-quiz">Practice</span></div>
+          <div class="res-name">ISTQB CTAL-TA Free Sample Questions</div>
+          <div class="res-src">processexam.com</div>
+          <div class="res-desc">Free sample questions for the Test Analyst exam. Good for warm-up in Week 1 to assess current knowledge level before deep study begins.</div>
+          <div class="res-tags"><span class="rtag">Test Analyst</span><span class="rtag">Sample questions</span><span class="rtag">Free</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.processexam.com/istqb/istqb-certified-tester-test-automation-engineer-ct-tae" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-paid">Paid</span><span class="res-badge rb-quiz">285+ questions</span></div>
+          <div class="res-name">ISTQB CT-TAE Premium Practice Exam — 285+ Questions</div>
+          <div class="res-src">processexam.com · Case-study based</div>
+          <div class="res-desc">285+ scenario-based CT-TAE v2.0 questions with randomized attempts. Endorsed by certified candidates. Good investment for the final revision sprint in Week 3.</div>
+          <div class="res-tags"><span class="rtag">285+ questions</span><span class="rtag">Case-study</span><span class="rtag">v2.0</span></div>
+        </a>
+
+        <a class="res-card" href="https://www.istqb.guru/tae-v2-study-guide/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-paid">Paid</span><span class="res-badge rb-docs">Study guide</span></div>
+          <div class="res-name">ISTQB TAE v2.0 Study Guide + Dumps</div>
+          <div class="res-src">istqb.guru · v2.0 only (not 2016)</div>
+          <div class="res-desc">Structured study guide specifically for CT-TAE v2.0 covering all chapters with exam-oriented explanations. Useful as a condensed companion to the official syllabus.</div>
+          <div class="res-tags"><span class="rtag">v2.0 guide</span><span class="rtag">All chapters</span><span class="rtag">Exam-focused</span></div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- BONUS RESOURCES -->
+    <div class="res-group" style="margin-top:1.5rem;">
+      <div class="res-group-title" style="color:var(--text2);">⚡ Bonus — community &amp; practice targets</div>
+      <div class="res-grid">
+
+        <a class="res-card" href="https://playwright.dev/docs/api/class-playwright" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Reference</span></div>
+          <div class="res-name">Playwright API Reference</div>
+          <div class="res-src">playwright.dev/docs/api</div>
+          <div class="res-desc">Keep this open while building. Every method, every option. Especially useful for route() interception, request(), and expect() matchers.</div>
+          <div class="res-tags"><span class="rtag">API reference</span><span class="rtag">Route interception</span></div>
+        </a>
+
+        <a class="res-card" href="https://saucedemo.com/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Practice app</span></div>
+          <div class="res-name">SauceDemo — Practice Target App</div>
+          <div class="res-src">saucedemo.com</div>
+          <div class="res-desc">Public e-commerce app built for automation practice. Login, product listing, cart, checkout — perfect for POM framework build in Week 1. Multiple user types for edge cases.</div>
+          <div class="res-tags"><span class="rtag">POM practice</span><span class="rtag">E2E flows</span><span class="rtag">Edge cases</span></div>
+        </a>
+
+        <a class="res-card" href="https://automationexercise.com/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Practice app</span></div>
+          <div class="res-name">Automation Exercise — Full App + API</div>
+          <div class="res-src">automationexercise.com</div>
+          <div class="res-desc">UI app with a REST API backend — ideal for integration test layer. Test the API directly, then write end-to-end tests that create data via API and verify in UI.</div>
+          <div class="res-tags"><span class="rtag">UI + API</span><span class="rtag">Integration tests</span><span class="rtag">REST API</span></div>
+        </a>
+
+        <a class="res-card" href="https://club.ministryoftesting.com/" target="_blank" rel="noopener">
+          <div class="res-top"><span class="res-badge rb-free">Free</span><span class="res-badge rb-docs">Community</span></div>
+          <div class="res-name">Ministry of Testing Club</div>
+          <div class="res-src">club.ministryoftesting.com</div>
+          <div class="res-desc">Active community forum with threads on AI testing, ISTQB prep tips, Playwright questions, and career advice. Great for quick answers when you're stuck.</div>
+          <div class="res-tags"><span class="rtag">Community</span><span class="rtag">Q&amp;A</span><span class="rtag">Career advice</span></div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Progress saved automatically in your browser ·
+    Built for <span>Senior QA → AI QE transition</span> ·
+    Deadline: <span>30 May 2026</span>
+  </footer>
+
+</div><!-- /wrap -->
+
+<script>
+const STORAGE_KEY = 'qa_study_plan_v1';
+
+// Task definitions for counting
+const taskDefs = {
+  pw: ['t1','t2','t3','t4','t5','t12','t13','t14','t15','t16','t27','t28','t29','t30'],
+  ci: ['t6','t7','t8','t17','t18','t19','t20','t21','t31','t32','t33','t34'],
+  is: ['t9','t10','t11','t22','t23','t24','t25','t26','t35','t36','t37','t38','t39'],
+};
+
+const weekTasks = {
+  'week-1': ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11'],
+  'week-2': ['t12','t13','t14','t15','t16','t17','t18','t19','t20','t21','t22','t23','t24','t25','t26'],
+  'week-3': ['t27','t28','t29','t30','t31','t32','t33','t34','t35','t36','t37','t38','t39'],
+};
+
+const weekTrackPcts = {
+  'week-1': { pw: ['t1','t2','t3','t4','t5'], ci: ['t6','t7','t8'], is: ['t9','t10','t11'] },
+  'week-2': { pw: ['t12','t13','t14','t15','t16'], ci: ['t17','t18','t19','t20','t21'], is: ['t22','t23','t24','t25','t26'] },
+  'week-3': { pw: ['t27','t28','t29','t30'], ci: ['t31','t32','t33','t34'], is: ['t35','t36','t37','t38','t39'] },
+};
+
+function loadState() {
+  try { return JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}'); }
+  catch { return {}; }
+}
+
+function saveState(state) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+}
+
+function initCheckboxes() {
+  const state = loadState();
+  document.querySelectorAll('input[type="checkbox"][data-id]').forEach(cb => {
+    cb.checked = !!state[cb.dataset.id];
+    cb.addEventListener('change', () => {
+      const s = loadState();
+      s[cb.dataset.id] = cb.checked;
+      saveState(s);
+      updateAll();
+    });
+  });
+  updateAll();
+}
+
+function updateAll() {
+  const state = loadState();
+  const allIds = [...taskDefs.pw, ...taskDefs.ci, ...taskDefs.is];
+  const totalDone = allIds.filter(id => state[id]).length;
+  const totalAll = allIds.length;
+  const pct = totalAll ? Math.round((totalDone / totalAll) * 100) : 0;
+
+  document.getElementById('overall-pct').textContent = pct + '%';
+  document.getElementById('overall-bar').style.width = pct + '%';
+  document.getElementById('overall-sub').textContent = `${totalDone} of ${totalAll} tasks completed`;
+
+  // Track progress bars
+  ['pw','ci','is'].forEach(track => {
+    const ids = taskDefs[track];
+    const done = ids.filter(id => state[id]).length;
+    const p = ids.length ? Math.round((done / ids.length) * 100) : 0;
+    document.getElementById('pct-' + track).textContent = p + '%';
+    document.getElementById('bar-' + track).style.width = p + '%';
+  });
+
+  // Week pills
+  ['week-1','week-2','week-3'].forEach(wid => {
+    const ids = weekTasks[wid];
+    const done = ids.filter(id => state[id]).length;
+    const p = ids.length ? Math.round((done / ids.length) * 100) : 0;
+    const pill = document.getElementById('pill-' + wid);
+    pill.textContent = p + '%';
+    pill.classList.toggle('done', p === 100);
+  });
+
+  // Per-week, per-track section percentages
+  Object.entries(weekTrackPcts).forEach(([wid, tracks]) => {
+    const wnum = wid.split('-')[1];
+    Object.entries(tracks).forEach(([track, ids]) => {
+      const el = document.getElementById(`tp-w${wnum}-${track}`);
+      if (!el) return;
+      const done = ids.filter(id => state[id]).length;
+      el.textContent = `${done}/${ids.length}`;
+    });
+  });
+
+  // Green glow on overall when 100%
+  const bar = document.getElementById('overall-bar');
+  if (pct === 100) {
+    bar.style.background = 'linear-gradient(90deg, var(--green), #2da862)';
+    bar.style.boxShadow = '0 0 10px rgba(26,122,74,0.3)';
+  }
+}
+
+function toggleWeek(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+let currentFilter = 'all';
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.track-section').forEach(s => {
+    if (f === 'all') s.classList.remove('hidden');
+    else s.classList.toggle('hidden', !s.classList.contains(f + '-section'));
+  });
+}
+
+function resetAll() {
+  if (confirm('Reset all checkboxes? This cannot be undone.')) {
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('input[type="checkbox"]').forEach(cb => cb.checked = false);
+    updateAll();
+  }
+}
+
+// Countdown
+function updateCountdown() {
+  const deadline = new Date('2026-05-30T23:59:59');
+  const now = new Date();
+  const diff = deadline - now;
+  if (diff <= 0) {
+    document.getElementById('cd-days').textContent = '0';
+    document.getElementById('cd-hrs').textContent = '00';
+    document.getElementById('cd-min').textContent = '00';
+    return;
+  }
+  const d = Math.floor(diff / 86400000);
+  const h = Math.floor((diff % 86400000) / 3600000);
+  const m = Math.floor((diff % 3600000) / 60000);
+  document.getElementById('cd-days').textContent = d;
+  document.getElementById('cd-hrs').textContent = String(h).padStart(2,'0');
+  document.getElementById('cd-min').textContent = String(m).padStart(2,'0');
+}
+
+function setResFilter(f, el) {
+  document.querySelectorAll('.res-filters .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  document.querySelectorAll('.res-group').forEach(g => {
+    if (f === 'all') { g.style.display = ''; return; }
+    g.style.display = (g.classList.contains(f + '-res') || (!g.classList.contains('pw-res') && !g.classList.contains('ci-res') && !g.classList.contains('is-res'))) ? '' : 'none';
+  });
+}
+
+updateCountdown();
+setInterval(updateCountdown, 10000);
+
+initCheckboxes();
+</script>
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://iebgonajknpdphdpcgogboljdaincidb/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
