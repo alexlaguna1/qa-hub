@@ -1132,7 +1132,8 @@ const company = document.getElementById('f-company').value.trim();
 const title   = document.getElementById('f-title').value.trim();
 const role    = document.getElementById('f-role').value;
 const status  = document.getElementById('f-status').value;
-document.getElementById('save-btn').disabled = !(company && title && role && status);
+const btn     = document.getElementById('save-btn');
+if (btn) btn.disabled = !(company && title && role && status); 
 }
 </script>
 
