@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)file:///Users/auys/Downloads/job-tracker.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Tracker · QA → Next Role</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link href="./Job Tracker · QA → Next Role_files/css2" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --paper:   #faf8f5;
+  --white:   #ffffff;
+  --bg2:     #f3f1ed;
+  --bg3:     #ece9e3;
+  --border:  #dedad2;
+  --border2: #cbc7be;
+  --ink:     #1c1a17;
+  --ink2:    #5c5850;
+  --ink3:    #9c9890;
+  --rust:    #c0440a;
+  --rust-dim:#fdf0eb;
+  --navy:    #1a3a6b;
+  --navy-dim:#eaf0fb;
+  --forest:  #1a5c35;
+  --forest-dim:#e8f5ee;
+  --gold:    #9a6d00;
+  --gold-dim:#fdf6e3;
+  --violet:  #5b3a8a;
+  --violet-dim:#f3eefb;
+  --slate:   #2e4a60;
+  --slate-dim:#eaf2f8;
+  --s-new:   #3b82f6;
+  --s-applied:#f59e0b;
+  --s-interview:#8b5cf6;
+  --s-offer: #10b981;
+  --s-rejected:#ef4444;
+  --display: 'Playfair Display', serif;
+  --body:    'DM Sans', sans-serif;
+  --r: 8px;
+  --r-sm: 5px;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 13px;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Subtle dot grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.45;
+}
+
+.wrap {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 2.5rem 1.5rem 5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HEADER ── */
+.site-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+  animation: fadeUp .5s ease both;
+}
+
+.header-left .kicker {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--rust);
+  margin-bottom: 6px;
+}
+
+.header-left h1 {
+  font-family: var(--display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+  letter-spacing: -.02em;
+}
+
+.header-left h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rust);
+}
+
+.header-left .tagline {
+  font-size: 12.5px;
+  color: var(--ink2);
+  margin-top: 6px;
+}
+
+.header-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 6px;
+}
+
+/* ── BUTTONS ── */
+.btn {
+  font-family: var(--body);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all .15s;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.btn-primary {
+  background: var(--rust);
+  color: white;
+  border-color: var(--rust);
+}
+.btn-primary:hover { background: #a83808; border-color: #a83808; }
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink2);
+  border-color: var(--border2);
+}
+.btn-outline:hover { background: var(--bg2); color: var(--ink); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink3);
+  border-color: transparent;
+  padding: 6px 10px;
+}
+.btn-ghost:hover { background: var(--bg2); color: var(--ink); }
+
+.btn-sm {
+  font-size: 11px;
+  padding: 5px 11px;
+}
+
+/* ── STATS BAR ── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 10px;
+  margin-bottom: 1.75rem;
+  animation: fadeUp .5s .08s ease both;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.stat-total::after  { background: var(--ink3); }
+.stat-saved::after  { background: var(--s-new); }
+.stat-applied::after{ background: var(--s-applied); }
+.stat-interview::after { background: var(--s-interview); }
+.stat-offer::after  { background: var(--s-offer); }
+.stat-rejected::after { background: var(--s-rejected); }
+
+.stat-val {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.stat-label {
+  font-size: 11px;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  margin-top: 4px;
+}
+
+/* ── FILTER BAR ── */
+.filter-bar {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+  animation: fadeUp .5s .14s ease both;
+}
+
+.filter-label {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--ink3);
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin-right: 4px;
+}
+
+.chip {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1.5px solid var(--border2);
+  background: transparent;
+  color: var(--ink2);
+  transition: all .15s;
+}
+.chip:hover { background: var(--bg2); color: var(--ink); }
+.chip.on { background: var(--ink); color: white; border-color: var(--ink); }
+.chip.on.c-saved    { background: var(--s-new); border-color: var(--s-new); }
+.chip.on.c-applied  { background: var(--s-applied); border-color: var(--s-applied); }
+.chip.on.c-interview{ background: var(--s-interview); border-color: var(--s-interview); }
+.chip.on.c-offer    { background: var(--s-offer); border-color: var(--s-offer); }
+.chip.on.c-rejected { background: var(--s-rejected); border-color: var(--s-rejected); }
+
+/* ── ROLE SECTIONS ── */
+.role-section {
+  margin-bottom: 1.75rem;
+  animation: fadeUp .5s ease both;
+}
+
+.role-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1.5px solid var(--border);
+}
+
+.role-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.role-title {
+  font-family: var(--display);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--ink);
+}
+
+.role-count {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--bg2);
+  color: var(--ink3);
+  border: 1px solid var(--border);
+}
+
+.role-badge {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 2px 9px;
+  border-radius: 20px;
+  margin-left: auto;
+}
+
+.role-add-btn {
+  font-family: var(--body);
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  border: 1.5px dashed var(--border2);
+  background: transparent;
+  color: var(--ink3);
+  transition: all .15s;
+}
+.role-add-btn:hover { border-color: var(--rust); color: var(--rust); background: var(--rust-dim); }
+
+/* ── JOB CARDS ── */
+.jobs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 10px;
+}
+
+.job-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  transition: box-shadow .15s, border-color .15s;
+}
+
+.job-card:hover {
+  box-shadow: 0 3px 16px rgba(0,0,0,.07);
+  border-color: var(--border2);
+}
+
+.job-card.status-saved     { border-top: 3px solid var(--s-new); }
+.job-card.status-applied   { border-top: 3px solid var(--s-applied); }
+.job-card.status-interview { border-top: 3px solid var(--s-interview); }
+.job-card.status-offer     { border-top: 3px solid var(--s-offer); }
+.job-card.status-rejected  { border-top: 3px solid var(--s-rejected); opacity: .7; }
+
+.job-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.job-company {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--ink3);
+}
+
+.job-title {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-top: 2px;
+}
+
+.job-actions {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+  opacity: 0;
+  transition: opacity .15s;
+}
+.job-card:hover .job-actions { opacity: 1; }
+
+.job-action-btn {
+  width: 26px;
+  height: 26px;
+  border-radius: var(--r-sm);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  transition: background .12s;
+  color: var(--ink3);
+}
+.job-action-btn:hover { background: var(--bg2); color: var(--ink); }
+.job-action-btn.del:hover { background: #fee2e2; color: #dc2626; }
+
+.job-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.job-pill {
+  font-size: 11px;
+  padding: 2px 9px;
+  border-radius: 20px;
+  background: var(--bg2);
+  color: var(--ink2);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.job-status {
+  font-size: 10px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
+.st-saved     { background: #eff6ff; color: var(--s-new);      border: 1px solid #bfdbfe; }
+.st-applied   { background: #fffbeb; color: var(--s-applied);   border: 1px solid #fde68a; }
+.st-interview { background: #f5f3ff; color: var(--s-interview); border: 1px solid #ddd6fe; }
+.st-offer     { background: #ecfdf5; color: var(--s-offer);     border: 1px solid #a7f3d0; }
+.st-rejected  { background: #fef2f2; color: var(--s-rejected);  border: 1px solid #fecaca; }
+
+.job-notes {
+  font-size: 12px;
+  color: var(--ink2);
+  font-style: italic;
+  line-height: 1.5;
+  border-top: 1px dashed var(--border);
+  padding-top: 7px;
+  margin-top: 2px;
+}
+
+.job-date {
+  font-size: 10px;
+  color: var(--ink3);
+  margin-top: auto;
+}
+
+.job-link {
+  font-size: 11px;
+  color: var(--rust);
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+}
+.job-link:hover { text-decoration: underline; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 2rem;
+  border: 1.5px dashed var(--border);
+  border-radius: var(--r);
+  color: var(--ink3);
+  font-size: 12.5px;
+}
+
+.empty-state .empty-icon { font-size: 28px; margin-bottom: 8px; }
+
+/* ── MODAL ── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(28,26,23,.45);
+  backdrop-filter: blur(3px);
+  z-index: 100;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+.overlay.open { display: flex; }
+
+.modal {
+  background: var(--white);
+  border-radius: 12px;
+  padding: 1.75rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 20px 60px rgba(0,0,0,.18);
+  animation: popIn .2s ease both;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+@keyframes popIn {
+  from { opacity: 0; transform: scale(.96) translateY(8px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-title {
+  font-family: var(--display);
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: var(--ink);
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: block;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--ink2);
+  margin-bottom: 5px;
+}
+
+.form-input, .form-select, .form-textarea {
+  width: 100%;
+  font-family: var(--body);
+  font-size: 13px;
+  padding: 9px 12px;
+  border: 1.5px solid var(--border);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  color: var(--ink);
+  outline: none;
+  transition: border-color .15s;
+}
+.form-input:focus, .form-select:focus, .form-textarea:focus {
+  border-color: var(--rust);
+  background: var(--white);
+}
+
+.form-textarea { resize: vertical; min-height: 70px; }
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border);
+}
+
+/* ── ROLE COLOUR SYSTEM ── */
+.dot-sqa    { background: #3b82f6; }
+.dot-ai     { background: #8b5cf6; }
+.dot-lead   { background: #10b981; }
+.dot-tpm    { background: #f59e0b; }
+.dot-ba     { background: #ef4444; }
+.dot-devops { background: #6366f1; }
+.dot-consult{ background: #14b8a6; }
+
+.badge-sqa    { background: #eff6ff; color: #1d4ed8; border: 1px solid #bfdbfe; }
+.badge-ai     { background: #f5f3ff; color: #6d28d9; border: 1px solid #ddd6fe; }
+.badge-lead   { background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; }
+.badge-tpm    { background: #fffbeb; color: #92400e; border: 1px solid #fde68a; }
+.badge-ba     { background: #fef2f2; color: #991b1b; border: 1px solid #fecaca; }
+.badge-devops { background: #eef2ff; color: #3730a3; border: 1px solid #c7d2fe; }
+.badge-consult{ background: #f0fdfa; color: #134e4a; border: 1px solid #99f6e4; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.role-section:nth-child(1) { animation-delay: .1s; }
+.role-section:nth-child(2) { animation-delay: .18s; }
+.role-section:nth-child(3) { animation-delay: .26s; }
+.role-section:nth-child(4) { animation-delay: .34s; }
+.role-section:nth-child(5) { animation-delay: .42s; }
+.role-section:nth-child(6) { animation-delay: .50s; }
+.role-section:nth-child(7) { animation-delay: .58s; }
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+footer {
+  text-align: center;
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 3rem;
+  letter-spacing: .03em;
+}
+footer span { color: var(--rust); }
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .jobs-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: repeat(3, 1fr); }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-left">
+      <div class="kicker">Senior QA Engineer · 8+ years</div>
+      <h1>Job Hunt<br><em>Tracker</em></h1>
+      <p class="tagline">Save postings, track applications, land the role.</p>
+    </div>
+    <div class="header-actions">
+      <button class="btn btn-outline" onclick="exportCSV()">⬇ Export CSV</button>
+      <button class="btn btn-primary" onclick="openAddModal()">+ Add job</button>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat-card stat-total">
+      <div class="stat-val" id="st-total">0</div>
+      <div class="stat-label">Total saved</div>
+    </div>
+    <div class="stat-card stat-saved">
+      <div class="stat-val" id="st-saved">0</div>
+      <div class="stat-label">To apply</div>
+    </div>
+    <div class="stat-card stat-applied">
+      <div class="stat-val" id="st-applied">0</div>
+      <div class="stat-label">Applied</div>
+    </div>
+    <div class="stat-card stat-interview">
+      <div class="stat-val" id="st-interview">0</div>
+      <div class="stat-label">Interviews</div>
+    </div>
+    <div class="stat-card stat-offer">
+      <div class="stat-val" id="st-offer">0</div>
+      <div class="stat-label">Offers</div>
+    </div>
+    <div class="stat-card stat-rejected">
+      <div class="stat-val" id="st-rejected">0</div>
+      <div class="stat-label">Rejected</div>
+    </div>
+  </div>
+
+  <!-- FILTER BAR -->
+  <div class="filter-bar">
+    <span class="filter-label">Filter:</span>
+    <button class="chip on" onclick="setFilter(&#39;all&#39;, this)">All</button>
+    <button class="chip c-saved" onclick="setFilter(&#39;saved&#39;, this)">⬜ To apply</button>
+    <button class="chip c-applied" onclick="setFilter(&#39;applied&#39;, this)">📤 Applied</button>
+    <button class="chip c-interview" onclick="setFilter(&#39;interview&#39;, this)">💬 Interview</button>
+    <button class="chip c-offer" onclick="setFilter(&#39;offer&#39;, this)">🎉 Offer</button>
+    <button class="chip c-rejected" onclick="setFilter(&#39;rejected&#39;, this)">✕ Rejected</button>
+  </div>
+
+  <!-- ROLE SECTIONS -->
+  <div id="sections-container"><div class="role-section" style="animation-delay: 0.1s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-sqa"></div>
+        <span class="role-title">Senior QA / SDET</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-sqa">Best match</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;sqa&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-sqa">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;sqa&#39;)">Add one →</button>
+        </div></div>
+    </div><div class="role-section" style="animation-delay: 0.17s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-ai"></div>
+        <span class="role-title">AI Quality Engineer</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-ai">🔥 Hot 2026</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;ai&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-ai">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;ai&#39;)">Add one →</button>
+        </div></div>
+    </div><div class="role-section" style="animation-delay: 0.24s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-lead"></div>
+        <span class="role-title">QA Lead / Engineering Manager</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-lead">Leadership path</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;lead&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-lead">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;lead&#39;)">Add one →</button>
+        </div></div>
+    </div><div class="role-section" style="animation-delay: 0.31s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-tpm"></div>
+        <span class="role-title">Technical Product / Project Manager</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-tpm">Pivot</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;tpm&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-tpm">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;tpm&#39;)">Add one →</button>
+        </div></div>
+    </div><div class="role-section" style="animation-delay: 0.38s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-ba"></div>
+        <span class="role-title">Business Analyst</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-ba">Pivot</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;ba&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-ba">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;ba&#39;)">Add one →</button>
+        </div></div>
+    </div><div class="role-section" style="animation-delay: 0.45s;">
+      <div class="role-section-header">
+        <div class="role-dot dot-consult"></div>
+        <span class="role-title">QA Consultant / Freelance</span>
+        <span class="role-count">0</span>
+        <span class="role-badge badge-consult">Side income</span>
+        <button class="role-add-btn" onclick="openAddModal(&#39;consult&#39;)">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-consult">
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal(&#39;consult&#39;)">Add one →</button>
+        </div></div>
+    </div></div>
+
+  <footer>Data saved locally in your browser ·
+    <span>Senior QA → AI QE transition</span> ·
+    Built May 2026
+  </footer>
+
+</div>
+
+<!-- ADD/EDIT MODAL -->
+<div class="overlay" id="modal-overlay" onclick="closeModalOnBg(event)">
+  <div class="modal">
+    <div class="modal-title" id="modal-title">Add job posting</div>
+    <input type="hidden" id="edit-id">
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="f-company">Company *</label>
+        <input class="form-input" id="f-company" placeholder="e.g. Stripe">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-role">Role category *</label>
+        <select class="form-select" id="f-role"><option value="sqa">Senior QA / SDET</option><option value="ai">AI Quality Engineer</option><option value="lead">QA Lead / Engineering Manager</option><option value="tpm">Technical Product / Project Manager</option><option value="ba">Business Analyst</option><option value="consult">QA Consultant / Freelance</option></select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="f-title">Job title *</label>
+      <input class="form-input" id="f-title" placeholder="e.g. Senior QA Engineer">
+    </div>
+
+    <div class="form-row">
+      <div class="form-group">
+        <label class="form-label" for="f-location">Location</label>
+        <input class="form-input" id="f-location" placeholder="Remote / London">
+      </div>
+      <div class="form-group">
+        <label class="form-label" for="f-salary">Salary range</label>
+        <input class="form-input" id="f-salary" placeholder="£60k–£80k">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="f-link">Job posting URL</label>
+      <input class="form-input" id="f-link" type="url" placeholder="https://...">
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="f-status">Status *</label>
+      <select class="form-select" id="f-status">
+        <option value="saved">⬜ Saved — to apply</option>
+        <option value="applied">📤 Applied</option>
+        <option value="interview">💬 Interview</option>
+        <option value="offer">🎉 Offer</option>
+        <option value="rejected">✕ Rejected</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label class="form-label" for="f-notes">Notes</label>
+      <textarea class="form-textarea" id="f-notes" placeholder="Deadline, contact, why this role excites you…"></textarea>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="btn btn-primary" onclick="saveJob()">Save posting</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ── DATA ── */
+const STORE = 'job_tracker_v1';
+
+const ROLES = [
+  {
+    id: 'sqa',
+    label: 'Senior QA / SDET',
+    dot: 'dot-sqa',
+    badge: 'badge-sqa',
+    badgeText: 'Best match',
+    desc: 'Direct skill match · Playwright · Automation frameworks · CI/CD',
+  },
+  {
+    id: 'ai',
+    label: 'AI Quality Engineer',
+    dot: 'dot-ai',
+    badge: 'badge-ai',
+    badgeText: '🔥 Hot 2026',
+    desc: 'LLM evaluation · Prompt testing · AI product quality',
+  },
+  {
+    id: 'lead',
+    label: 'QA Lead / Engineering Manager',
+    dot: 'dot-lead',
+    badge: 'badge-lead',
+    badgeText: 'Leadership path',
+    desc: 'Team leadership · Mentoring · QA strategy · People management',
+  },
+  {
+    id: 'tpm',
+    label: 'Technical Product / Project Manager',
+    dot: 'dot-tpm',
+    badge: 'badge-tpm',
+    badgeText: 'Pivot',
+    desc: 'Acceptance criteria · Edge-case thinking → product decisions',
+  },
+  {
+    id: 'ba',
+    label: 'Business Analyst',
+    dot: 'dot-ba',
+    badge: 'badge-ba',
+    badgeText: 'Pivot',
+    desc: 'Requirements · Stakeholder collaboration · Process mapping · UAT',
+  },
+  {
+    id: 'consult',
+    label: 'QA Consultant / Freelance',
+    dot: 'dot-consult',
+    badge: 'badge-consult',
+    badgeText: 'Side income',
+    desc: 'Contract testing work · Framework audits · Process consulting',
+  },
+];
+
+const STATUS_LABELS = {
+  saved:     { emoji: '⬜', text: 'To apply',  cls: 'st-saved' },
+  applied:   { emoji: '📤', text: 'Applied',   cls: 'st-applied' },
+  interview: { emoji: '💬', text: 'Interview', cls: 'st-interview' },
+  offer:     { emoji: '🎉', text: 'Offer',     cls: 'st-offer' },
+  rejected:  { emoji: '✕',  text: 'Rejected',  cls: 'st-rejected' },
+};
+
+function load() {
+  try { return JSON.parse(localStorage.getItem(STORE) || '[]'); } catch { return []; }
+}
+function save(data) { localStorage.setItem(STORE, JSON.stringify(data)); }
+
+/* ── RENDER ── */
+let currentFilter = 'all';
+
+function render() {
+  const jobs = load();
+  const container = document.getElementById('sections-container');
+  container.innerHTML = '';
+
+  // Populate role select
+  const sel = document.getElementById('f-role');
+  if (sel.options.length === 0) {
+    ROLES.forEach(r => {
+      const o = document.createElement('option');
+      o.value = r.id; o.textContent = r.label;
+      sel.appendChild(o);
+    });
+  }
+
+  // Stats
+  const counts = { saved: 0, applied: 0, interview: 0, offer: 0, rejected: 0 };
+  jobs.forEach(j => { if (counts[j.status] !== undefined) counts[j.status]++; });
+  document.getElementById('st-total').textContent = jobs.length;
+  document.getElementById('st-saved').textContent = counts.saved;
+  document.getElementById('st-applied').textContent = counts.applied;
+  document.getElementById('st-interview').textContent = counts.interview;
+  document.getElementById('st-offer').textContent = counts.offer;
+  document.getElementById('st-rejected').textContent = counts.rejected;
+
+  // Sections
+  ROLES.forEach((role, i) => {
+    let roleJobs = jobs.filter(j => j.role === role.id);
+    if (currentFilter !== 'all') roleJobs = roleJobs.filter(j => j.status === currentFilter);
+
+    const section = document.createElement('div');
+    section.className = 'role-section';
+    section.style.animationDelay = (0.1 + i * 0.07) + 's';
+
+    const allRoleJobs = jobs.filter(j => j.role === role.id);
+    const count = allRoleJobs.length;
+
+    section.innerHTML = `
+      <div class="role-section-header">
+        <div class="role-dot ${role.dot}"></div>
+        <span class="role-title">${role.label}</span>
+        <span class="role-count">${count}</span>
+        <span class="role-badge ${role.badge}">${role.badgeText}</span>
+        <button class="role-add-btn" onclick="openAddModal('${role.id}')">+ Add</button>
+      </div>
+      <div class="jobs-grid" id="grid-${role.id}"></div>
+    `;
+
+    container.appendChild(section);
+
+    const grid = document.getElementById(`grid-${role.id}`);
+
+    if (roleJobs.length === 0) {
+      grid.innerHTML = `
+        <div class="empty-state" style="grid-column:1/-1">
+          <div class="empty-icon">📋</div>
+          ${currentFilter !== 'all'
+            ? `No <strong>${STATUS_LABELS[currentFilter]?.text || currentFilter}</strong> jobs in this category.`
+            : `No postings yet. <button class="btn btn-ghost btn-sm" onclick="openAddModal('${role.id}')">Add one →</button>`}
+        </div>`;
+      return;
+    }
+
+    roleJobs.forEach(job => {
+      const st = STATUS_LABELS[job.status] || STATUS_LABELS.saved;
+      const card = document.createElement('div');
+      card.className = `job-card status-${job.status}`;
+      card.innerHTML = `
+        <div class="job-card-top">
+          <div>
+            <div class="job-company">${esc(job.company)}</div>
+            <div class="job-title">${esc(job.title)}</div>
+          </div>
+          <div class="job-actions">
+            <button class="job-action-btn" title="Edit" onclick="openEditModal('${job.id}')">✏️</button>
+            <button class="job-action-btn del" title="Delete" onclick="deleteJob('${job.id}')">🗑</button>
+          </div>
+        </div>
+        <div class="job-meta">
+          <span class="job-status ${st.cls}">${st.emoji} ${st.text}</span>
+          ${job.location ? `<span class="job-pill">📍 ${esc(job.location)}</span>` : ''}
+          ${job.salary   ? `<span class="job-pill">💰 ${esc(job.salary)}</span>` : ''}
+        </div>
+        ${job.notes ? `<div class="job-notes">${esc(job.notes)}</div>` : ''}
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-top:4px;">
+          ${job.link ? `<a class="job-link" href="${esc(job.link)}" target="_blank" rel="noopener">View posting ↗</a>` : '<span></span>'}
+          <span class="job-date">${formatDate(job.date)}</span>
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+  });
+}
+
+/* ── MODAL ── */
+let editingId = null;
+
+function openAddModal(roleId) {
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'Add job posting';
+  document.getElementById('edit-id').value = '';
+  document.getElementById('f-company').value = '';
+  document.getElementById('f-title').value = '';
+  document.getElementById('f-location').value = '';
+  document.getElementById('f-salary').value = '';
+  document.getElementById('f-link').value = '';
+  document.getElementById('f-notes').value = '';
+  document.getElementById('f-status').value = 'saved';
+  if (roleId) {
+    // ensure options populated
+    const sel = document.getElementById('f-role');
+    if (sel.options.length === 0) { ROLES.forEach(r => { const o = document.createElement('option'); o.value = r.id; o.textContent = r.label; sel.appendChild(o); }); }
+    document.getElementById('f-role').value = roleId;
+  }
+  document.getElementById('modal-overlay').classList.add('open');
+  setTimeout(() => document.getElementById('f-company').focus(), 80);
+}
+
+function openEditModal(id) {
+  const jobs = load();
+  const job = jobs.find(j => j.id === id);
+  if (!job) return;
+  editingId = id;
+  document.getElementById('modal-title').textContent = 'Edit posting';
+  document.getElementById('edit-id').value = id;
+  const sel = document.getElementById('f-role');
+  if (sel.options.length === 0) { ROLES.forEach(r => { const o = document.createElement('option'); o.value = r.id; o.textContent = r.label; sel.appendChild(o); }); }
+  document.getElementById('f-role').value = job.role;
+  document.getElementById('f-company').value = job.company;
+  document.getElementById('f-title').value = job.title;
+  document.getElementById('f-location').value = job.location || '';
+  document.getElementById('f-salary').value = job.salary || '';
+  document.getElementById('f-link').value = job.link || '';
+  document.getElementById('f-status').value = job.status;
+  document.getElementById('f-notes').value = job.notes || '';
+  document.getElementById('modal-overlay').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('modal-overlay').classList.remove('open');
+  editingId = null;
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modal-overlay')) closeModal();
+}
+
+function saveJob() {
+  const company = document.getElementById('f-company').value.trim();
+  const title   = document.getElementById('f-title').value.trim();
+  if (!company || !title) { alert('Company and job title are required.'); return; }
+
+  const jobs = load();
+  const job = {
+    id:       editingId || uid(),
+    role:     document.getElementById('f-role').value,
+    company,
+    title,
+    location: document.getElementById('f-location').value.trim(),
+    salary:   document.getElementById('f-salary').value.trim(),
+    link:     document.getElementById('f-link').value.trim(),
+    status:   document.getElementById('f-status').value,
+    notes:    document.getElementById('f-notes').value.trim(),
+    date:     editingId ? (jobs.find(j => j.id === editingId)?.date || new Date().toISOString()) : new Date().toISOString(),
+  };
+
+  if (editingId) {
+    const idx = jobs.findIndex(j => j.id === editingId);
+    if (idx > -1) jobs[idx] = job;
+  } else {
+    jobs.unshift(job);
+  }
+
+  save(jobs);
+  closeModal();
+  render();
+}
+
+function deleteJob(id) {
+  if (!confirm('Remove this posting?')) return;
+  save(load().filter(j => j.id !== id));
+  render();
+}
+
+/* ── FILTER ── */
+function setFilter(f, el) {
+  currentFilter = f;
+  document.querySelectorAll('.chip').forEach(c => c.classList.remove('on'));
+  el.classList.add('on');
+  render();
+}
+
+/* ── EXPORT ── */
+function exportCSV() {
+  const jobs = load();
+  if (!jobs.length) { alert('No jobs to export yet.'); return; }
+  const headers = ['Company','Title','Role Category','Location','Salary','Status','Link','Notes','Date Added'];
+  const rows = jobs.map(j => [
+    j.company, j.title,
+    ROLES.find(r => r.id === j.role)?.label || j.role,
+    j.location, j.salary, j.status, j.link, j.notes,
+    new Date(j.date).toLocaleDateString('en-GB'),
+  ].map(v => `"${(v||'').replace(/"/g,'""')}"`).join(','));
+  const blob = new Blob([headers.join(',') + '\n' + rows.join('\n')], { type: 'text/csv' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'job-tracker.csv';
+  a.click();
+}
+
+/* ── UTILS ── */
+function uid() { return Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+function esc(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function formatDate(d) {
+  try { return new Date(d).toLocaleDateString('en-GB', { day:'numeric', month:'short', year:'numeric' }); }
+  catch { return ''; }
+}
+
+// Keyboard: Escape closes modal
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+render();
+</script>
+
+
+<deepl-input-controller translate="no"><template shadowrootmode="open"><link rel="stylesheet" href="chrome-extension://iebgonajknpdphdpcgogboljdaincidb/build/content.css"><div dir="ltr" style="visibility: initial !important;"><div class="dl-input-translation-container svelte-95aucy"><div></div></div></div></template></deepl-input-controller></body></html>
