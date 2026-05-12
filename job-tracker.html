@@ -149,6 +149,7 @@ body::before {
   color: white;
   border-color: var(--rust);
 }
+.btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
 .btn-primary:hover { background: #a83808; border-color: #a83808; }
 
 .btn-outline {
@@ -769,17 +770,19 @@ footer span { color: var(--rust); }
     <div class="form-row">
       <div class="form-group">
         <label class="form-label" for="f-company">Company *</label>
-        <input class="form-input" id="f-company" placeholder="e.g. Stripe">
+        <input class="form-input" id="f-company" placeholder="e.g. Stripe" oninput="validateForm()">
       </div>
       <div class="form-group">
         <label class="form-label" for="f-role">Role category *</label>
-        <select class="form-select" id="f-role"><option value="sqa">Senior QA / SDET</option><option value="ai">AI Quality Engineer</option><option value="lead">QA Lead / Engineering Manager</option><option value="tpm">Technical Product / Project Manager</option><option value="ba">Business Analyst</option><option value="consult">QA Consultant / Freelance</option></select>
+        <select class="form-select" id="f-role" onchange="validateForm()">
+          <option value="sqa">Senior QA / SDET</option><option value="ai">AI Quality Engineer</option><option value="lead">QA Lead / Engineering Manager</option><option value="tpm">Technical Product / Project Manager</option><option value="ba">Business Analyst</option><option value="po">Product Owner</option><option value="consult">QA Consultant / Freelance</option>
+        </select>
       </div>
     </div>
 
     <div class="form-group">
       <label class="form-label" for="f-title">Job title *</label>
-      <input class="form-input" id="f-title" placeholder="e.g. Senior QA Engineer">
+      <input class="form-input" id="f-title" placeholder="e.g. Senior QA Engineer" oninput="validateForm()">
     </div>
 
     <div class="form-row">
@@ -800,7 +803,7 @@ footer span { color: var(--rust); }
 
     <div class="form-group">
       <label class="form-label" for="f-status">Status *</label>
-      <select class="form-select" id="f-status">
+      <select class="form-select" id="f-status" onchange="validateForm()">
         <option value="saved">⬜ Saved — to apply</option>
         <option value="applied">📤 Applied</option>
         <option value="interview">💬 Interview</option>
@@ -816,7 +819,7 @@ footer span { color: var(--rust); }
 
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal()">Cancel</button>
-      <button class="btn btn-primary" onclick="saveJob()">Save posting</button>
+      <button class="btn btn-primary" onclick="saveJob() disabled">Save posting</button>
     </div>
   </div>
 </div>
@@ -1016,6 +1019,7 @@ function openAddModal(roleId) {
   }
   document.getElementById('modal-overlay').classList.add('open');
   setTimeout(() => document.getElementById('f-company').focus(), 80);
+  validateForm();
 }
 
 function openEditModal(id) {
@@ -1036,6 +1040,7 @@ function openEditModal(id) {
   document.getElementById('f-status').value = job.status;
   document.getElementById('f-notes').value = job.notes || '';
   document.getElementById('modal-overlay').classList.add('open');
+  validateForm();
 }
 
 function closeModal() {
@@ -1122,6 +1127,13 @@ function formatDate(d) {
 document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 
 render();
+function validateForm() {
+const company = document.getElementById('f-company').value.trim();
+const title   = document.getElementById('f-title').value.trim();
+const role    = document.getElementById('f-role').value;
+const status  = document.getElementById('f-status').value;
+document.getElementById('save-btn').disabled = !(company && title && role && status);
+}
 </script>
 
 
