@@ -7,6 +7,13 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link href="./Job Tracker · QA → Next Role_files/css2" rel="stylesheet">
 <style>
+.topnav { position: sticky; top: 0; z-index: 50; background: rgba(250,248,245,0.88); backdrop-filter: blur(10px); border-bottom: 1px solid var(--border); display: flex; align-items: center; height: 44px; padding: 0 1.5rem; gap: 10px; }
+.topnav a.back { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--ink2); text-decoration: none; padding: 5px 10px; border-radius: 6px; transition: background .15s, color .15s; }
+.topnav a.back:hover { background: var(--bg3); color: var(--ink); }
+.topnav .nav-sep { color: var(--border2); }
+.topnav .nav-current { font-size: 12px; font-weight: 500; color: var(--ink); }
+.topnav .nav-other { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--ink2); text-decoration: none; padding: 5px 10px; border-radius: 6px; border: 1px solid var(--border); background: var(--bg2); transition: background .15s, color .15s; }
+.topnav .nav-other:hover { background: var(--bg3); color: var(--ink); }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
 
@@ -603,6 +610,12 @@ footer span { color: var(--rust); }
 </style>
 </head>
 <body>
+  <nav class="topnav">
+  <a class="back" href="index.html">← QA Hub</a>
+  <span class="nav-sep">/</span>
+  <span class="nav-current">Study Plan</span>
+  <a class="nav-other" href="https://alexlaguna1.github.io/qa-hub/job-tracker.html">💼 Job Tracker</a>
+</nav>
 <div class="wrap">
 
   <!-- HEADER -->
