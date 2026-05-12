@@ -1,17 +1,489 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My QA Hub</title>
-  <style>
-    body { font-family: sans-serif; padding: 3rem; background: #faf8f5; }
-    h1 { font-size: 2rem; margin-bottom: 1rem; }
-    a { display: block; margin: 0.5rem 0; font-size: 1.1rem; color: #c0440a; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QA Hub · Alex Laguna</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+:root {
+  --paper:  #faf8f5;
+  --white:  #ffffff;
+  --bg2:    #f3f1ed;
+  --border: #dedad2;
+  --border2:#cbc7be;
+  --ink:    #1c1a17;
+  --ink2:   #5c5850;
+  --ink3:   #9c9890;
+  --rust:   #c0440a;
+  --rust2:  #a83808;
+  --rust-dim:#fdf0eb;
+  --display:'Playfair Display', serif;
+  --body:   'DM Sans', sans-serif;
+}
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Dot grid */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, var(--border) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem 0 3rem;
+}
+
+.hero-kicker {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .18em;
+  color: var(--rust);
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  animation: fadeUp .6s ease both;
+}
+
+.hero-kicker::before {
+  content: '';
+  display: inline-block;
+  width: 32px;
+  height: 1.5px;
+  background: var(--rust);
+}
+
+.hero-headline {
+  font-family: var(--display);
+  font-size: clamp(46px, 9vw, 88px);
+  font-weight: 700;
+  line-height: 1.0;
+  letter-spacing: -.03em;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+  animation: fadeUp .6s .08s ease both;
+}
+
+.hero-headline em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--rust);
+}
+
+.hero-headline .line2 {
+  display: block;
+  padding-left: 3rem;
+}
+
+.hero-sub {
+  font-size: 16px;
+  color: var(--ink2);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 2.5rem;
+  animation: fadeUp .6s .16s ease both;
+}
+
+.hero-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 3rem;
+  animation: fadeUp .6s .22s ease both;
+}
+
+.tag {
+  font-size: 11px;
+  font-weight: 500;
+  padding: 5px 13px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border2);
+  color: var(--ink2);
+  background: var(--white);
+}
+
+/* ── CARDS ── */
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  animation: fadeUp .6s .3s ease both;
+}
+
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  padding: 1.75rem;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  cursor: pointer;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--rust-dim) 0%, transparent 60%);
+  opacity: 0;
+  transition: opacity .25s;
+}
+
+.card:hover {
+  border-color: var(--rust);
+  box-shadow: 0 8px 32px rgba(192,68,10,.10);
+  transform: translateY(-3px);
+}
+
+.card:hover::before { opacity: 1; }
+
+.card-icon {
+  font-size: 32px;
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+}
+
+.card-body { position: relative; z-index: 1; flex: 1; }
+
+.card-title {
+  font-family: var(--display);
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+  color: var(--ink);
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.card-desc {
+  font-size: 13px;
+  color: var(--ink2);
+  line-height: 1.6;
+}
+
+.card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+  margin-top: auto;
+}
+
+.card-detail {
+  font-size: 11px;
+  color: var(--ink3);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+}
+
+.card-arrow {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: var(--bg2);
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  transition: background .15s, border-color .15s, transform .15s;
+  color: var(--ink2);
+}
+
+.card:hover .card-arrow {
+  background: var(--rust);
+  border-color: var(--rust);
+  color: white;
+  transform: translate(2px, -2px);
+}
+
+/* ── PROGRESS STRIP ── */
+.progress-strip {
+  margin: 3rem 0 0;
+  animation: fadeUp .6s .4s ease both;
+}
+
+.strip-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: .12em;
+  color: var(--ink3);
+  margin-bottom: 12px;
+}
+
+.strip-items {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 9px 14px;
+  font-size: 12.5px;
+  color: var(--ink2);
+  flex: 1;
+  min-width: 140px;
+}
+
+.strip-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── DIVIDER ── */
+.divider {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 4rem 0 3rem;
+  animation: fadeUp .6s .5s ease both;
+}
+
+.divider-line { flex: 1; height: 1px; background: var(--border); }
+.divider-text {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink3);
+  white-space: nowrap;
+}
+
+/* ── ABOUT STRIP ── */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 3rem;
+  animation: fadeUp .6s .55s ease both;
+}
+
+.about-item {
+  background: var(--white);
+  padding: 1.25rem 1.5rem;
+}
+
+.about-num {
+  font-family: var(--display);
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--rust);
+  line-height: 1;
+}
+
+.about-lbl {
+  font-size: 12px;
+  color: var(--ink2);
+  margin-top: 4px;
+}
+
+/* ── FOOTER ── */
+footer {
+  padding: 2rem 0 3rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  animation: fadeUp .6s .6s ease both;
+}
+
+.footer-name {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.footer-sub {
+  font-size: 11px;
+  color: var(--ink3);
+  margin-top: 2px;
+}
+
+.footer-right {
+  font-size: 11px;
+  color: var(--ink3);
+  text-align: right;
+}
+
+.footer-right span { color: var(--rust); }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 560px) {
+  .cards { grid-template-columns: 1fr; }
+  .about { grid-template-columns: 1fr 1fr; }
+  .hero-headline .line2 { padding-left: 1.5rem; }
+}
+</style>
 </head>
 <body>
-  <h1>My QA Hub</h1>
-  <a href="https://alexlaguna1.github.io/qa-hub/study-plan.html">📚 Study Plan</a>
-  <a href="https://alexlaguna1.github.io/qa-hub/job-tracker.html">💼 Job Tracker</a>
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-kicker">Senior QA Engineer · 8+ years</div>
+
+    <h1 class="hero-headline">
+      QA<em> Hub</em>
+      <span class="line2">by Alex</span>
+    </h1>
+
+    <p class="hero-sub">
+      A personal workspace for the job hunt — tracking the study plan,
+      collecting the right opportunities, and landing the next role.
+    </p>
+
+    <div class="hero-tags">
+      <span class="tag">Test Automation</span>
+      <span class="tag">Playwright</span>
+      <span class="tag">CI/CD</span>
+      <span class="tag">AI Quality Engineering</span>
+      <span class="tag">ISTQB TA + TAE</span>
+      <span class="tag">Open to remote</span>
+    </div>
+
+    <!-- TOOL CARDS -->
+    <div class="cards">
+      <a class="card" href="study-plan.html">
+        <div class="card-icon">📚</div>
+        <div class="card-body">
+          <div class="card-title">Study Plan</div>
+          <div class="card-desc">3-track plan to May 30. Playwright framework, CI/CD integration, and ISTQB TA + TAE prep — with checkboxes and live progress.</div>
+        </div>
+        <div class="card-footer">
+          <span class="card-detail">19 days · 3 tracks · 39 tasks</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+
+      <a class="card" href="job-tracker.html">
+        <div class="card-icon">💼</div>
+        <div class="card-body">
+          <div class="card-title">Job Tracker</div>
+          <div class="card-desc">Collect postings, track applications across 6 role categories. From saved → applied → interview → offer.</div>
+        </div>
+        <div class="card-footer">
+          <span class="card-detail">6 role categories</span>
+          <span class="card-arrow">→</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- PROGRESS STRIP -->
+    <div class="progress-strip">
+      <div class="strip-label">Target roles</div>
+      <div class="strip-items">
+        <div class="strip-item"><div class="strip-dot" style="background:#3b82f6"></div>Senior QA / SDET</div>
+        <div class="strip-item"><div class="strip-dot" style="background:#8b5cf6"></div>AI Quality Engineer</div>
+        <div class="strip-item"><div class="strip-dot" style="background:#10b981"></div>QA Lead / EM</div>
+        <div class="strip-item"><div class="strip-dot" style="background:#f59e0b"></div>Technical PM</div>
+        <div class="strip-item"><div class="strip-dot" style="background:#ef4444"></div>Business Analyst</div>
+      </div>
+    </div>
+
+  </section>
+
+  <!-- DIVIDER -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-text">by the numbers</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <!-- ABOUT STRIP -->
+  <div class="about">
+    <div class="about-item">
+      <div class="about-num">8+</div>
+      <div class="about-lbl">years in QA & test automation</div>
+    </div>
+    <div class="about-item">
+      <div class="about-num">May 30</div>
+      <div class="about-lbl">study plan deadline</div>
+    </div>
+    <div class="about-item">
+      <div class="about-num">6</div>
+      <div class="about-lbl">target role categories</div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div>
+      <div class="footer-name">Alex Laguna</div>
+      <div class="footer-sub">Senior QA Engineer · Remote · Open to work</div>
+    </div>
+    <div class="footer-right">
+      Built May 2026 ·
+      <span>QA → AI QE transition</span>
+    </div>
+  </footer>
+
+</div>
 </body>
 </html>
