@@ -718,6 +718,10 @@
         <div class="track-mini-label">📚 ISTQB <span class="track-mini-pct" id="pct-is" style="color:var(--amber)">0%</span></div>
         <div class="track-mini-bar"><div class="track-mini-fill" id="bar-is" style="width:0%;background:var(--amber)"></div></div>
       </div>
+      <div class="track-mini">
+  <div class="track-mini-label">📊 Observability & Metrics <span class="track-mini-pct" id="pct-obs" style="color:#0891b2">0%</span></div>
+  <div class="track-mini-bar"><div class="track-mini-fill" id="bar-obs" style="width:0%;background:#0891b2"></div></div>
+      </div>
     </div>
   </div>
 
@@ -727,6 +731,7 @@
     <button class="filter-btn" onclick="setFilter(&#39;pw&#39;,this)">🎭 Playwright</button>
     <button class="filter-btn" onclick="setFilter(&#39;ci&#39;,this)">🔗 CI/CD</button>
     <button class="filter-btn" onclick="setFilter(&#39;is&#39;,this)">📚 ISTQB</button>
+    <button class="filter-btn" onclick="setFilter('obs',this)">📊 Observability</button>
   </div>
 
   <!-- WEEKS -->
@@ -771,6 +776,14 @@
           <label class="task"><input type="checkbox" data-id="t10" data-track="is"><span class="task-text">Read TA Ch 1–2: Testing throughout the software lifecycle, test management basics</span></label>
           <label class="task"><input type="checkbox" data-id="t11" data-track="is"><span class="task-text">Read TAE Ch 1: Introduction to test automation, gTAA (generic test automation architecture)</span></label>
         </div>
+
+        <div class="track-section obs-section">
+  <div class="track-title" style="color:#0891b2;">📊 Observability & Metrics <span class="track-pct" id="tp-w1-obs"></span></div>
+  <label class="task"><input type="checkbox" data-id="t47" data-track="obs"><span class="task-text">Learn the core QA observability pillars: logs, metrics, and traces — understand how each surfaces different types of quality signal in production</span></label>
+  <label class="task"><input type="checkbox" data-id="t48" data-track="obs"><span class="task-text">Define key QA metrics for your framework: test pass rate, flakiness rate, bug escape rate, mean time to detect (MTTD) — set baseline targets</span></label>
+  <label class="task"><input type="checkbox" data-id="t49" data-track="obs"><span class="task-text">Instrument your Playwright suite to emit structured test results (JUnit XML / JSON) and consume them in a GitHub Actions summary dashboard</span></label>
+  <label class="task"><input type="checkbox" data-id="t50" data-track="obs"><span class="task-text">Explore one observability tool (Grafana + Prometheus or Datadog free tier) — connect a test metrics feed and build a simple quality health dashboard</span></label>
+</div>
 
       </div>
     </div>
@@ -1158,16 +1171,17 @@ const taskDefs = {
   pw: ['t1','t2','t3','t4','t5','t12','t13','t14','t15','t16','t27','t28','t29','t30'],
   ci: ['t6','t7','t8','t17','t18','t19','t20','t21','t31','t32','t33','t34'],
   is: ['t9','t10','t11','t22','t23','t24','t25','t26','t35','t36','t37','t38','t39'],
+  obs: ['t47','t48','t49','t50'],
 };
 
 const weekTasks = {
-  'week-1': ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11'],
+  'week-1': ['t1','t2','t3','t4','t5','t6','t7','t8','t9','t10','t11','t40','t41','t47','t48','t49','t50'],
   'week-2': ['t12','t13','t14','t15','t16','t17','t18','t19','t20','t21','t22','t23','t24','t25','t26'],
   'week-3': ['t27','t28','t29','t30','t31','t32','t33','t34','t35','t36','t37','t38','t39'],
 };
 
 const weekTrackPcts = {
-  'week-1': { pw: ['t1','t2','t3','t4','t5'], ci: ['t6','t7','t8'], is: ['t9','t10','t11'] },
+  'week-1': { pw: ['t1','t2','t3','t4','t5'], ci: ['t6','t7','t8'], is: ['t9','t10','t11'], obs: ['t47','t48','t49','t50'] },
   'week-2': { pw: ['t12','t13','t14','t15','t16'], ci: ['t17','t18','t19','t20','t21'], is: ['t22','t23','t24','t25','t26'] },
   'week-3': { pw: ['t27','t28','t29','t30'], ci: ['t31','t32','t33','t34'], is: ['t35','t36','t37','t38','t39'] },
 };
@@ -1197,7 +1211,7 @@ function initCheckboxes() {
 
 function updateAll() {
   const state = loadState();
-  const allIds = [...taskDefs.pw, ...taskDefs.ci, ...taskDefs.is];
+  const allIds = [...taskDefs.pw, ...taskDefs.ci, ...taskDefs.is, ...taskDefs.tdd, ...taskDefs.obs];
   const totalDone = allIds.filter(id => state[id]).length;
   const totalAll = allIds.length;
   const pct = totalAll ? Math.round((totalDone / totalAll) * 100) : 0;
