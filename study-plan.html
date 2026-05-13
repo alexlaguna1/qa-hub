@@ -1221,7 +1221,7 @@ function updateAll() {
   document.getElementById('overall-sub').textContent = `${totalDone} of ${totalAll} tasks completed`;
 
   // Track progress bars
-  ['pw','ci','is'].forEach(track => {
+  ['pw','ci','is','obs'].forEach(track => {
     const ids = taskDefs[track];
     const done = ids.filter(id => state[id]).length;
     const p = ids.length ? Math.round((done / ids.length) * 100) : 0;
